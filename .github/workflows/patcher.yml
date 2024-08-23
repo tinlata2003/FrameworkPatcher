@@ -94,34 +94,6 @@ jobs:
     - name: Extract miui-framework.jar
       run: 7z x miui-framework.jar -omiui_framework
 
-    - name: Decompile framework dex files if available
-      run: |
-        if [ -f framework/classes.dex ]; then
-          java -jar smali/baksmali/build/libs/baksmali.jar d -a ${{ github.event.inputs.android_api_level }} framework/classes.dex -o classes
-        else
-          echo "framework/classes.dex not found, skipping decompilation."
-        fi
-        if [ -f framework/classes2.dex ]; then
-          java -jar smali/baksmali/build/libs/baksmali.jar d -a ${{ github.event.inputs.android_api_level }} framework/classes2.dex -o classes2
-        else
-          echo "framework/classes2.dex not found, skipping decompilation."
-        fi
-        if [ -f framework/classes3.dex ]; then
-          java -jar smali/baksmali/build/libs/baksmali.jar d -a ${{ github.event.inputs.android_api_level }} framework/classes3.dex -o classes3
-        else
-          echo "framework/classes3.dex not found, skipping decompilation."
-        fi
-        if [ -f framework/classes4.dex ]; then
-          java -jar smali/baksmali/build/libs/baksmali.jar d -a ${{ github.event.inputs.android_api_level }} framework/classes4.dex -o classes4
-        else
-          echo "framework/classes4.dex not found, skipping decompilation."
-        fi
-        if [ -f framework/classes5.dex ]; then
-          java -jar smali/baksmali/build/libs/baksmali.jar d -a ${{ github.event.inputs.android_api_level }} framework/classes5.dex -o classes5
-        else
-          echo "framework/classes5.dex not found, skipping decompilation."
-        fi
-
     - name: Decompile services dex files if available
       run: |
         if [ -f services/classes.dex ]; then
