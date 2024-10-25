@@ -1,4 +1,4 @@
-name: Modify Framework and Services
+name: Modify no Framework only Services
 
 on:
   workflow_dispatch:
